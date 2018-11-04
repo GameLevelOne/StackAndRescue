@@ -10,16 +10,19 @@ public class EnemyT3 : MonoBehaviour {
     public BrickGenerator brickGen;
     public EnemyMan enemyMan;
     public int health;
+    public AudioClip spell;
 
-    Vector2 tempPos,minCam,maxCam;
-    Animator anim;
-    Transform target;
-    bool dead,inPos,frozen;//att;
-    float timer = 2f;
+    private AudioSource audioS;
+    private Vector2 tempPos,minCam,maxCam;
+    private Animator anim;
+    private Transform target;
+    private bool dead,inPos,frozen;//att;
+    private float timer = 2f;
 
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+        audioS = gameSys.GetComponent<AudioSource>();
         target = userIn.testPos;
         minCam = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         maxCam = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
@@ -72,6 +75,7 @@ public class EnemyT3 : MonoBehaviour {
                                         {
                                             anim.SetTrigger("attack");
                                             timer = 2f;
+                                            audioS.PlayOneShot(spell);
                                         }
                                     timer-=Time.deltaTime;
                                     inPos = true;
@@ -163,8 +167,15 @@ public class EnemyT3 : MonoBehaviour {
                             target = null;
                             speed = 0;
                             enemyMan.enemyNum--;
-                            gameSys.GetComponent<Objectives>().enemyKilled++;
-                            gameSys.GetComponent<PlayerSP>().spCount++;
+                            gameSys.GetComponent<ScoreMan>().coins += 5;
+                            if(GetComponent<Enemy>().killObj)
+                                {
+                                    gameSys.GetComponent<Objectives>().enemyKilled++;
+                                }
+                            if(gameSys.GetComponent<PlayerSP>().spCount<50)
+                                {
+                                    gameSys.GetComponent<PlayerSP>().spCount++;
+                                }
                             anim.SetTrigger("dead");
                             dead = true;
                         }

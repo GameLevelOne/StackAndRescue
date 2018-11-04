@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 1532419344597126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.02, y: -0.22, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_Children:
   - {fileID: 4922591362225506}
   - {fileID: 4513424319248830}
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezed: 0
   hardened: 0
+  killObj: 0
 --- !u!114 &114520126203876352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,6 +211,8 @@ MonoBehaviour:
   gameSys: {fileID: 0}
   enemyMan: {fileID: 0}
   onClick: 0
+  fly: {fileID: 8300000, guid: abdfa095c51499d4199cb0c676c6079a, type: 3}
+  xplode: {fileID: 8300000, guid: 808527976e901a84190b9fe0456492ba, type: 3}
 --- !u!212 &212706005306784040
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -291,7 +294,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 1e6281fbfa8386141accaa79f641aba3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6dd02dc3639bad04ebab6c6b981abc10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -8,16 +8,21 @@ public class EnemyT4 : MonoBehaviour {
     public GameSystem gameSys;
     public EnemyMan enemyMan;
     public bool onClick;
+    public AudioClip fly,xplode;
 
-    Vector2 tempPos;
+    private AudioSource audioS;
+
+    //Vector2 tempPos;
     Animator anim;
     Transform target;
     bool dead,frozen;
     
 	void Start () {
         anim = GetComponent<Animator>();
+        audioS = gameSys.GetComponent<AudioSource>();
         target = gameSys.lastBrick;
         defSpeed = 8f;
+        audioS.PlayOneShot(fly);
 	}
 	
 	void Update () {
@@ -46,6 +51,7 @@ public class EnemyT4 : MonoBehaviour {
                             if (Vector2.Distance(transform.position, target.position) <= 0.2f)
                                 {
                                     speed = 0;
+                                    audioS.PlayOneShot(xplode);
                                     if(target!=null && Vector2.Distance(transform.position, target.position) <= 0.2f) 
                                         {
                                             Kamikaze();
@@ -55,12 +61,16 @@ public class EnemyT4 : MonoBehaviour {
                                     {
                                         speed = defSpeed;
                                         Vector2 dir = target.position - transform.position;
-                                        tempPos = transform.position;
+                                        //tempPos = transform.position;
                                         transform.Translate(dir.normalized * speed * Time.deltaTime);
                                     }
                         } else
                             {
                                 Kamikaze();
+                                if(!dead)
+                                    {
+                                        audioS.PlayOneShot(xplode);
+                                    }
                                 dead = true;
                             }
                 }
@@ -84,9 +94,17 @@ public class EnemyT4 : MonoBehaviour {
                 target = null;
                 speed = 0;
                 enemyMan.enemyNum--;
-                gameSys.GetComponent<Objectives>().enemyKilled++;
-                gameSys.GetComponent<PlayerSP>().spCount++;
+                gameSys.GetComponent<ScoreMan>().coins += 5;
+                if(GetComponent<Enemy>().killObj)
+                    {
+                        gameSys.GetComponent<Objectives>().enemyKilled++;
+                    }
+                if(gameSys.GetComponent<PlayerSP>().spCount<50)
+                    {
+                        gameSys.GetComponent<PlayerSP>().spCount++;
+                    }
                 anim.SetTrigger("dead");
+                audioS.PlayOneShot(xplode);
                 dead = true;
                 onClick = true;
             }

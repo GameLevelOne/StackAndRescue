@@ -170,8 +170,15 @@ public class EnemyT2 : MonoBehaviour {
                             target = null;
                             speed = 0;
                             enemyMan.enemyNum--;
-                            gameSys.GetComponent<Objectives>().enemyKilled++;
-                            gameSys.GetComponent<PlayerSP>().spCount++;
+                            gameSys.GetComponent<ScoreMan>().coins += 5;
+                            if(GetComponent<Enemy>().killObj)
+                                {
+                                    gameSys.GetComponent<Objectives>().enemyKilled++;
+                                }
+                            if(gameSys.GetComponent<PlayerSP>().spCount<50)
+                                {
+                                    gameSys.GetComponent<PlayerSP>().spCount++;
+                                }
                             anim.SetTrigger("dead");
                             dead = true;
                         }

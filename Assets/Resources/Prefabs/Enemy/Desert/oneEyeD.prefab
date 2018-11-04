@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1722882856270216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7434311, y: -0.56643033, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +61,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6, y: 8}
-    newSize: {x: 1.5, y: 2}
+    newSize: {x: 6, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezed: 0
   hardened: 0
+  killObj: 0
 --- !u!114 &114509409859118030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +118,7 @@ MonoBehaviour:
   gameSys: {fileID: 0}
   enemyMan: {fileID: 0}
   curtain: {fileID: 0}
+  squash: {fileID: 8300000, guid: 90ad4a0079f3da744b5edef6bc40d116, type: 3}
 --- !u!212 &212213952409634540
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -152,12 +154,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: cf53e4d809807db45bd0e86d749b1041, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69f06ed04d916614a90e495e21ca80d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 2}
+  m_Size: {x: 6, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

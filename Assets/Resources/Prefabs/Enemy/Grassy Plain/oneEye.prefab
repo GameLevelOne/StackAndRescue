@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1354177181432060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7434311, y: -0.56643033, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezed: 0
   hardened: 0
+  killObj: 0
 --- !u!114 &114335216980316496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +118,7 @@ MonoBehaviour:
   gameSys: {fileID: 0}
   enemyMan: {fileID: 0}
   curtain: {fileID: 0}
+  squash: {fileID: 8300000, guid: 90ad4a0079f3da744b5edef6bc40d116, type: 3}
 --- !u!212 &212711620705644054
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -152,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 696e5ae8127e643498c35490d2db4689, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5694fa571ccb40c4c9b11b627076daff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

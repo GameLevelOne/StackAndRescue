@@ -14,6 +14,10 @@ public class PlayerSP : MonoBehaviour {
 	
 	void Update () {
         spCountTxt.text = spCount.ToString();
+        if(spCount>50)
+            {
+                spCount = 50;
+            }
         spInd.value = spCount;
         if (spCount<0)
             {

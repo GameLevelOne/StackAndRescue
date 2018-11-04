@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BrickControl : MonoBehaviour {
     public GameObject gameSys;
     public Transform healthInd;
     public int brickHealth;
-    public bool invincible,dropped;
+    public bool invincible,dropped,abyssed;
     public Animator anim;
     public SpriteRenderer sprite;
-
-    bool abyssed,destroyed,check,fin;
-    float timer = .5f;
+    
+    private bool destroyed,check,fin;
+    private float timer = .5f;
 
     void Start() {
         brickHealth = 2;
@@ -44,6 +45,17 @@ public class BrickControl : MonoBehaviour {
                         }
                 }
     }
+
+    void OnMouseDown() {
+        if(!dropped && !abyssed)
+            {
+                if(!EventSystem.current.IsPointerOverGameObject())
+                    {
+                        transform.Rotate(0, 0, 90);
+                    }
+            }
+    }
+
     void OnCollisionEnter2D(Collision2D coll) {
         if(coll.gameObject.tag.Contains("brick") || coll.gameObject.tag.Contains("land"))
             { 
@@ -51,6 +63,7 @@ public class BrickControl : MonoBehaviour {
                     {
                         if(!dropped)
                             {
+                                gameSys.GetComponent<GameSystem>().cam.GetComponent<CameraControl>().ShakeCam(.25f,false);
                                 gameSys.GetComponent<BrickGenerator>().SpawnNextBrick(); //Spawning when touching other brick
                                 Vector3 scale = transform.localScale;
                                 transform.SetParent(gameSys.GetComponent<GameSystem>().checkpoint);
@@ -68,7 +81,7 @@ public class BrickControl : MonoBehaviour {
                                                     }
                                         }
                                 transform.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
-                                gameSys.GetComponent<ScoreMan>().coins += 5;
+                                //gameSys.GetComponent<ScoreMan>().coins += 5;
                                 sprite.sortingOrder = -1;
                                 dropped = true;
                             }
@@ -213,7 +226,7 @@ public class BrickControl : MonoBehaviour {
     }
 
     IEnumerator Checkpoint(bool f) {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         gameSys.GetComponent<GameSystem>().CheckpointFreeze(f);
     }
 }

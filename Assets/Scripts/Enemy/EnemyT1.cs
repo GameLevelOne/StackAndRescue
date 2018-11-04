@@ -8,14 +8,19 @@ public class EnemyT1 : MonoBehaviour {
     public int damage;
     public GameSystem gameSys;
     public EnemyMan enemyMan;
+    public AudioClip att;
 
-    Vector2 tempPos;
-    Animator anim;
-    Transform target;
-    bool dead,frozen;
+    private AudioSource audioS;
+    private Vector2 tempPos;
+    private Animator anim;
+    private Transform target;
+    private bool dead,frozen;
+    private int attNum;
+    private float timer = 1.5f;
     
 	void Start () {
         anim = GetComponent<Animator>();
+        audioS = gameSys.GetComponent<AudioSource>();
         target = gameSys.lastBrick;
         defSpeed = 2f;
         damage = 1;
@@ -44,12 +49,25 @@ public class EnemyT1 : MonoBehaviour {
                     //anim.speed = 1; 
                     if(target != null && !dead) 
                         {
+                            timer-=Time.deltaTime;
                             if (Vector2.Distance(transform.position, target.position) <= 0.2f)
                                 {
                                     speed = 0;
                                     if(target!=null && Vector2.Distance(transform.position, target.position) <= 0.2f) 
                                         {
-                                            anim.SetTrigger("attack");
+                                            if(timer<=0)
+                                                {
+                                                    anim.SetTrigger("attack");
+                                                    attNum++;
+                                                    if(gameSys.level == 4)
+                                                        {
+                                                            if(attNum==2)
+                                                                {
+                                                                    gameSys.GetComponent<Objectives>().lose = true;
+                                                                }
+                                                        }
+                                                    timer = 1.5f;
+                                                }
                                         }
                                 } else
                                     {
@@ -90,6 +108,7 @@ public class EnemyT1 : MonoBehaviour {
                     {
                         target.GetComponent<BrickControl>().brickHealth-=damage;
                     }
+                audioS.PlayOneShot(att);
             }
     }
 
@@ -103,8 +122,15 @@ public class EnemyT1 : MonoBehaviour {
                 target = null;
                 speed = 0;
                 enemyMan.enemyNum--;
-                gameSys.GetComponent<Objectives>().enemyKilled++;
-                gameSys.GetComponent<PlayerSP>().spCount++;
+                gameSys.GetComponent<ScoreMan>().coins += 5;
+                if(GetComponent<Enemy>().killObj)
+                    {
+                        gameSys.GetComponent<Objectives>().enemyKilled++;
+                    }
+                if(gameSys.GetComponent<PlayerSP>().spCount<50)
+                    {
+                        gameSys.GetComponent<PlayerSP>().spCount++;
+                    }
                 anim.SetTrigger("dead");
                 dead = true;
             }

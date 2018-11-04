@@ -8,15 +8,18 @@ public class EnemyT5 : MonoBehaviour {
     public GameSystem gameSys;
     public EnemyMan enemyMan;
     public GameObject curtain;
+    public AudioClip squash;
 
-    Vector2 tempPos,minCam,maxCam, newTarget;
-    Animator anim;
-    Transform target;
-    float timer = 10f;
-    bool dead,inPos,timeOut,frozen;
+    private AudioSource audioS;
+    private Vector2 tempPos,minCam,maxCam, newTarget;
+    private Animator anim;
+    private Transform target;
+    private float timer = 10f;
+    private bool dead,inPos,timeOut,frozen;
     
 	void Start () {
         anim = GetComponent<Animator>();
+        audioS = gameSys.GetComponent<AudioSource>();
         target = gameSys.lastBrick;
         minCam = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         maxCam = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
@@ -105,7 +108,7 @@ public class EnemyT5 : MonoBehaviour {
                                                         speed = defSpeed;
                                                     } else
                                                         {
-                                                            if (newTarget == null)
+                                                            if (newTarget == Vector2.zero)
                                                                 {
                                                                     float randX = Random.Range(minCam.x,maxCam.x);
                                                                     float randY = Random.Range(minCam.y,maxCam.y);
@@ -160,16 +163,27 @@ public class EnemyT5 : MonoBehaviour {
     }
 
     void OnMouseDown() {
+        if (gameSys.level == 5)
+            {
+                gameSys.GetComponent<Objectives>().lose = true;
+            }
         if(!dead)
             {
                 target = null;
                 newTarget = transform.position;
                 speed = 0;
                 enemyMan.enemyNum--;
-                gameSys.GetComponent<Objectives>().enemyKilled++;
-                gameSys.GetComponent<PlayerSP>().spCount++;
+                if(GetComponent<Enemy>().killObj)
+                    {
+                        gameSys.GetComponent<Objectives>().enemyKilled++;
+                    }
+                if(gameSys.GetComponent<PlayerSP>().spCount<50)
+                    {
+                        gameSys.GetComponent<PlayerSP>().spCount+=5;
+                    }
                 anim.SetTrigger("dead");
                 dead = true;
+                audioS.PlayOneShot(squash);
             }
     }
 

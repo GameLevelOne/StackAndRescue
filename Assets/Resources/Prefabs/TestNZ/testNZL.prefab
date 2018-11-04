@@ -42,7 +42,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 50
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 0.25
@@ -115,8 +115,12 @@ MonoBehaviour:
   brickHealth: 0
   invincible: 0
   dropped: 0
+  abyssed: 0
   anim: {fileID: 0}
   sprite: {fileID: 0}
+  hard: {fileID: 0}
+  des: {fileID: 0}
+  dam: {fileID: 8300000, guid: c875a07177f3efb4abf2cae4dd13b268, type: 3}
 --- !u!212 &212806485650282288
 SpriteRenderer:
   m_ObjectHideFlags: 1

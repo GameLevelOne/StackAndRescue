@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4067242145092268}
   - component: {fileID: 212797853745780606}
   - component: {fileID: 95455501140885696}
-  - component: {fileID: 114965321487367506}
+  - component: {fileID: 114933577439112732}
   m_Layer: 0
   m_Name: Annihilate
   m_TagString: Untagged
@@ -60,7 +60,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114965321487367506
+--- !u!114 &114933577439112732
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1645019108742800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14f74d41656202446891769581c90018, type: 3}
+  m_Script: {fileID: 11500000, guid: 00e1cbafd1a6476449ecffe3f698413e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212797853745780606

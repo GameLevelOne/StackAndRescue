@@ -20,37 +20,37 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: db31fdef7d1b11342950ac21f953b529, type: 3}
-    - time: 0.07692308
+    - time: 0.041666668
       value: {fileID: 21300000, guid: f68e72911fc04b845903373639c58005, type: 3}
-    - time: 0.15384616
+    - time: 0.083333336
       value: {fileID: 21300000, guid: 407942b6d2edf4a41a66b0d8fec41a91, type: 3}
-    - time: 0.23076923
+    - time: 0.125
       value: {fileID: 21300000, guid: 1e02b7f883f8b1e4299170beb3074fca, type: 3}
-    - time: 0.30769232
+    - time: 0.16666667
       value: {fileID: 21300000, guid: c12e3e52169bc824b8325f64fafc03f0, type: 3}
-    - time: 0.3846154
+    - time: 0.20833333
       value: {fileID: 21300000, guid: a9e364b99e9135143ace1f3a49aeb83b, type: 3}
-    - time: 0.46153846
+    - time: 0.25
       value: {fileID: 21300000, guid: d18198fb981b43347b893fed3d7d856c, type: 3}
-    - time: 0.53846157
+    - time: 0.29166666
       value: {fileID: 21300000, guid: 67906428d1272ef499598149768e2d0a, type: 3}
-    - time: 0.61538464
+    - time: 0.33333334
       value: {fileID: 21300000, guid: b749bfb21378c2a4998bcdb773fb564c, type: 3}
-    - time: 0.6923077
+    - time: 0.375
       value: {fileID: 21300000, guid: 4984fd973dcc37141be247a7c2f0a9c9, type: 3}
-    - time: 0.7692308
+    - time: 0.41666666
       value: {fileID: 21300000, guid: 468cb9ac7aa088a4fb14a19cd9bf7bf0, type: 3}
-    - time: 0.84615386
+    - time: 0.45833334
       value: {fileID: 21300000, guid: f08adbda4d9324144b0af894c1627b23, type: 3}
-    - time: 0.9230769
+    - time: 0.5
       value: {fileID: 21300000, guid: 0d2ca9306b953e545b2c602a65f2dc64, type: 3}
-    - time: 1
+    - time: 0.5416667
       value: {fileID: 21300000, guid: deedcbf09efde2c428e85e2c8a54a18c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 13
+  m_SampleRate: 24
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -84,7 +84,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0769231
+    m_StopTime: 0.5833334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -105,7 +105,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 1
+  - time: 0.5416667
     functionName: Desutroy
     data: 
     objectReferenceParameter: {fileID: 0}

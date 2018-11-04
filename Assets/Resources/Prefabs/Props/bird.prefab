@@ -72,8 +72,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defspeed: 2
-  xhome: 3
-  xtarget: -3
+  toLeft: 1
+  toRight: 0
+  xHome: 3
+  xTarget: 3
 --- !u!212 &212111458178266706
 SpriteRenderer:
   m_ObjectHideFlags: 1

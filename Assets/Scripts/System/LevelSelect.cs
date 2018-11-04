@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour {
-    public int lvl;
 
-	public void SelecetLevel() {
-        SceneManager.LoadScene(lvl);
+	public void Start() {
+        Time.timeScale = 1;
     }
 }

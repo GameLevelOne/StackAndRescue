@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Objectives : MonoBehaviour {
     public string goal;
-    public bool modeStory, modeBuild, modeDefend, modeEndless, win;
+    public bool modeStory, modeBuild, modeDefend, modeEndless, win, lose, kill;
     public int checkpointReached, enemyKilled;
     public int checkpointGoal, enemyGoal;
     public Text goalTxt,statusTxt;
@@ -45,11 +45,31 @@ public class Objectives : MonoBehaviour {
     }
     
     void StoryMode() {
-        goalTxt.text = checkpointGoal.ToString();
-        statusTxt.text = checkpointReached.ToString();
+        if(kill)
+            {
+                goalTxt.text = enemyGoal.ToString();
+                statusTxt.text = enemyKilled.ToString();
+            } else
+                {
+                    goalTxt.text = checkpointGoal.ToString();
+                    statusTxt.text = checkpointReached.ToString();
+                }
         if(checkpointReached==checkpointGoal)
             {
-                win = true;
+                if(kill)
+                    {
+                        if(enemyKilled>=enemyGoal)
+                            {
+                                win = true;
+                                StartCoroutine(ZoomOut());
+                            } else
+                                {
+                                    lose = true;
+                                }
+                    } else
+                        {
+                            win = true;
+                        }
                 //StartCoroutine(ZoomOut());
             }
     }

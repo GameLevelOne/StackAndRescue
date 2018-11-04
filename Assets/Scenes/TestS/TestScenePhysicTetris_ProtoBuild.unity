@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &51730322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6440,7 +6440,7 @@ SpriteRenderer:
   m_Size: {x: 4.89, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1136501886
@@ -7390,6 +7390,8 @@ GameObject:
   - component: {fileID: 1373883567}
   - component: {fileID: 1373883566}
   - component: {fileID: 1373883568}
+  - component: {fileID: 1373883572}
+  - component: {fileID: 1373883571}
   - component: {fileID: 1373883570}
   m_Layer: 0
   m_Name: GameSystem
@@ -7493,14 +7495,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1114932836}
   winOverScreen: {fileID: 413064121}
+  hero: {fileID: 0}
+  skillsAndInds: {fileID: 0}
   pauseBtn: {fileID: 454430866}
   gameOver: 0
   winOver: 0
+  lastCheck: 0
+  story: 0
   checkpoint: {fileID: 1103721856}
   checkPointPrefab: {fileID: 4156022034138960, guid: 8da265b9ee0da3041a5052d58c6da938,
     type: 2}
   lastBrick: {fileID: 0}
+  finishPlatf: {fileID: 0}
   cam: {fileID: 429761324}
+  level: 0
 --- !u!114 &1373883566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7513,10 +7521,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: build
+  modeStory: 0
   modeBuild: 0
   modeDefend: 0
   modeEndless: 0
   win: 0
+  lose: 0
+  kill: 0
   checkpointReached: 0
   enemyKilled: 0
   checkpointGoal: 3
@@ -7541,17 +7552,21 @@ MonoBehaviour:
   enemy3: {fileID: 1808040648729662, guid: c378d21566b703945a47e3c625fabb90, type: 2}
   enemy4: {fileID: 1977118929134192, guid: dc8a0a7018ce4984694a60000647954e, type: 2}
   enemy5: {fileID: 1354177181432060, guid: 85d605ec80015cb4fac5003fe8540fb8, type: 2}
+  enemy6: {fileID: 0}
   curtain: {fileID: 1505543771}
+  snap: {fileID: 0}
   spawnP1: {fileID: 458900247}
   spawnP2: {fileID: 1986946415}
   spawnP3: {fileID: 1167836003}
   spawnP4: {fileID: 1661480538}
   enemyNum: 0
-  enemyLim: 5
+  enemyLim: 1
   timer: 5
   timeBetween: 3
   eT2: 0
   eT3: 0
+  eT6: 0
+  killObj: 0
 --- !u!114 &1373883568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7592,6 +7607,7 @@ MonoBehaviour:
   hardeningArea: {fileID: 149050081}
   annihilateFX: {fileID: 1913989082}
   freezeFX: {fileID: 1769519514212428, guid: 80b9c59d084ae284ebec1bb5e73d51d8, type: 2}
+  enemyTar: []
 --- !u!61 &1373883570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7617,6 +7633,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1373883571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373883559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d48ba6e4a75834d926eba6f6d3278a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectSwipeOnlyAfterRelease: 0
+  minDistanceForSwipe: 10
+--- !u!114 &1373883572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373883559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fabb3ba5a243249a4875809344d54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377981512
 GameObject:
   m_ObjectHideFlags: 0

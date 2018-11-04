@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Playables;
 
 public class GameSystem : MonoBehaviour {
-    public GameObject gameOverScreen,winOverScreen,hero,skillsAndInds;
+    public GameObject gameOverScreen,winOverScreen,hero,skillsAndInds,boss1Ed,boss2Ed;
     public Button pauseBtn;
     public bool gameOver,winOver,lastCheck,story;
     public Transform checkpoint, checkPointPrefab, lastBrick, finishPlatf;
@@ -29,7 +29,7 @@ public class GameSystem : MonoBehaviour {
     }
 
     void Update () {
-        if (playerHealthSystem.healthCount<=0)
+        if (playerHealthSystem.healthCount<=0 || GetComponent<Objectives>().lose)
             {
                 gameOverScreen.SetActive(true);
                 if(gameOverScreen && !gameOver)
@@ -49,7 +49,20 @@ public class GameSystem : MonoBehaviour {
                 Destroy(GetComponent<UserInput>().testPos.gameObject);
                 hero.SetActive(false);
                 skillsAndInds.SetActive(false);
-                checkpoint.GetComponent<PlayableDirector>().enabled = true;
+                if(level==15) //temporary without cutscene
+                    {
+                        boss2Ed.SetActive(true);
+                    } else if(level==10)
+                        {
+                            boss1Ed.SetActive(true);
+                        }
+                    else
+                        {
+                            if(checkpoint.GetComponent<PlayableDirector>())
+                                {
+                                    checkpoint.GetComponent<PlayableDirector>().enabled = true;
+                                }
+                        }
                 winOver = true;
             }
         if(checkpoint.childCount != 0)
@@ -92,11 +105,23 @@ public class GameSystem : MonoBehaviour {
                             {
                                 if (GetComponent<Objectives>().checkpointGoal-2== GetComponent<Objectives>().checkpointReached)
                                     {
-                                        checkpoint = Instantiate(finishPlatf, new Vector2(checkpoint.position.x, checkpoint.position.y + 25),checkpoint.rotation);
+                                        if(level>=11)
+                                            {
+                                                checkpoint = Instantiate(finishPlatf, new Vector2(checkpoint.position.x, checkpoint.position.y + 15),checkpoint.rotation);
+                                            } else
+                                                {
+                                                    checkpoint = Instantiate(finishPlatf, new Vector2(checkpoint.position.x, checkpoint.position.y + 16),checkpoint.rotation);
+                                                }
                                         lastCheck = true;
                                     } else 
                                         {
-                                            checkpoint = Instantiate(checkPointPrefab, new Vector2(checkpoint.position.x, checkpoint.position.y + 15),checkpoint.rotation);
+                                            if(level>=11)
+                                                {
+                                                    checkpoint = Instantiate(checkPointPrefab, new Vector2(checkpoint.position.x, checkpoint.position.y + 13),checkpoint.rotation);
+                                                } else
+                                                    {
+                                                        checkpoint = Instantiate(checkPointPrefab, new Vector2(checkpoint.position.x, checkpoint.position.y + 14),checkpoint.rotation);
+                                                    }
                                         }
                             }
                     }

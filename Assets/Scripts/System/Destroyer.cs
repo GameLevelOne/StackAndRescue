@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour {
 
-	// Use this for initialization
 	void Desutroy() {
         Destroy(gameObject);
+    }
+
+    void Disabling() {
+        gameObject.SetActive(false);
     }
 }

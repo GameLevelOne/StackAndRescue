@@ -9,11 +9,11 @@ public class BrickGenerator : MonoBehaviour {
 
     bool gameStarted;
     UserInput brickController;
-    GameSystem gameSys;
+    //GameSystem gameSys;
     
     void Start () {
         brickController = GetComponent<UserInput>();
-        gameSys = GetComponent<GameSystem>();
+        //gameSys = GetComponent<GameSystem>();
         SpawnNextBrick();
 	}
 
