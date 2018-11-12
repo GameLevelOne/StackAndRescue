@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114907911561490380}
   - component: {fileID: 60056611269829306}
   - component: {fileID: 95889803975186372}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: testNZL
   m_TagString: brick
   m_Icon: {fileID: 0}
@@ -118,9 +118,8 @@ MonoBehaviour:
   abyssed: 0
   anim: {fileID: 0}
   sprite: {fileID: 0}
-  hard: {fileID: 0}
-  des: {fileID: 0}
-  dam: {fileID: 8300000, guid: c875a07177f3efb4abf2cae4dd13b268, type: 3}
+  brickDes: {fileID: 8300000, guid: 11576756d279b89479c078697e3e3bb8, type: 3}
+  rotate: {fileID: 8300000, guid: aac6f3923aa95dd49852bf4a83bce441, type: 3}
 --- !u!212 &212806485650282288
 SpriteRenderer:
   m_ObjectHideFlags: 1

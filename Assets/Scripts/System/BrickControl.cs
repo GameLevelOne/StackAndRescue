@@ -11,7 +11,9 @@ public class BrickControl : MonoBehaviour {
     public bool invincible,dropped,abyssed;
     public Animator anim;
     public SpriteRenderer sprite;
-    
+    public AudioClip brickDes,rotate;
+
+    private AudioSource audioS;
     private bool destroyed,check,fin;
     private float timer = .5f;
 
@@ -19,6 +21,7 @@ public class BrickControl : MonoBehaviour {
         brickHealth = 2;
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        audioS = gameSys.GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -52,6 +55,7 @@ public class BrickControl : MonoBehaviour {
                 if(!EventSystem.current.IsPointerOverGameObject())
                     {
                         transform.Rotate(0, 0, 90);
+                        audioS.PlayOneShot(rotate);
                     }
             }
     }
@@ -212,6 +216,7 @@ public class BrickControl : MonoBehaviour {
     }
 
     void Desutroy() {
+        audioS.PlayOneShot(brickDes);
         Destroy(gameObject);
     }
 

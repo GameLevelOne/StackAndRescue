@@ -97,6 +97,8 @@
     <Compile Include="Assets\Scripts\System\Objectives.cs" />
     <Compile Include="Assets\Scripts\System\OpeningComic.cs" />
     <Compile Include="Assets\Scripts\System\PauseGame.cs" />
+    <Compile Include="Assets\Scripts\System\PotionBtn.cs" />
+    <Compile Include="Assets\Scripts\System\PurchasedItems.cs" />
     <Compile Include="Assets\Scripts\System\ScoreMan.cs" />
     <Compile Include="Assets\Scripts\System\ShopSystem.cs" />
     <Compile Include="Assets\Scripts\System\Transition.cs" />

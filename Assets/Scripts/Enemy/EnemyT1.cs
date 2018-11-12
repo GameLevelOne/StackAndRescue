@@ -8,7 +8,7 @@ public class EnemyT1 : MonoBehaviour {
     public int damage;
     public GameSystem gameSys;
     public EnemyMan enemyMan;
-    public AudioClip att;
+    public AudioClip att,fly,dieS;
 
     private AudioSource audioS;
     private Vector2 tempPos;
@@ -132,6 +132,7 @@ public class EnemyT1 : MonoBehaviour {
                         gameSys.GetComponent<PlayerSP>().spCount++;
                     }
                 anim.SetTrigger("dead");
+                audioS.PlayOneShot(dieS);
                 dead = true;
             }
     }

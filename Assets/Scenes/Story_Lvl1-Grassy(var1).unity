@@ -879,7 +879,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Touch the screen to rotate the block
+  m_Text: Touch the brick to rotate it
 --- !u!222 &117269359
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6643,6 +6643,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSys: {fileID: 1373883561}
+  heroSkinsNum: 0
+  princessSkinsNum: 0
+  brickThemesNum: 0
 --- !u!1 &923349046
 GameObject:
   m_ObjectHideFlags: 0
@@ -9801,6 +9804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+  accCoins: 0
   coinTxt: {fileID: 1597423058}
 --- !u!114 &1373883569
 MonoBehaviour:
@@ -14577,7 +14581,7 @@ Animator:
   m_GameObject: {fileID: 1927593158}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8809f63130bfe3c4f82bc8e5b48f1b9e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6550e5ffa8a85a7468f9819125e56839, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -14605,7 +14609,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a3f634bcbacfeb04c9265a57a87f3865, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc45dd0cbff2a8949858ea387ec08def, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
